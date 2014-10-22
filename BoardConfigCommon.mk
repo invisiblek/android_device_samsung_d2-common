@@ -23,10 +23,7 @@
 # inherit from common msm8960
 -include device/samsung/msm8960-common/BoardConfigCommon.mk
 
-TARGET_SPECIFIC_HEADER_PATH := device/samsung/d2lte/include
-
-# Assert
-TARGET_OTA_ASSERT_DEVICE := d2att,d2spr,d2spi,d2tfnspr,d2tmo,d2cri,d2mtr,d2usc,d2vmu,d2vzw,d2lte,d2can
+TARGET_SPECIFIC_HEADER_PATH := device/samsung/d2-common/include
 
 # Bootloader
 TARGET_BOOTLOADER_BOARD_NAME := MSM8960
@@ -44,8 +41,8 @@ BOARD_USES_SEPERATED_AUDIO_INPUT := true
 BOARD_USES_SEPERATED_VOIP := true
 
 # Bluetooth
-BOARD_BLUEDROID_VENDOR_CONF := device/samsung/d2lte/bluetooth/vnd_d2.txt
-BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := device/samsung/d2lte/bluetooth
+BOARD_BLUEDROID_VENDOR_CONF := device/samsung/d2-common/bluetooth/vnd_d2.txt
+BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := device/samsung/d2-common/bluetooth
 BOARD_HAVE_BLUETOOTH_BCM := true
 
 # Camera
@@ -58,7 +55,7 @@ TARGET_NEED_SAMSUNG_CAMERA_MODE := true
 TARGET_NO_RPC := true
 
 # RIL
-BOARD_RIL_CLASS := ../../../device/samsung/d2lte/ril
+BOARD_RIL_CLASS := ../../../device/samsung/d2-common/ril
 
 # Wifi
 BOARD_WLAN_DEVICE := bcmdhd
@@ -72,10 +69,5 @@ WIFI_DRIVER_FW_PATH_PARAM   := "/sys/module/dhd/parameters/firmware_path"
 WIFI_DRIVER_FW_PATH_STA     := "/system/etc/wifi/bcmdhd_sta.bin"
 WIFI_DRIVER_FW_PATH_AP      := "/system/etc/wifi/bcmdhd_apsta.bin"
 
-# Vendor Init
-TARGET_UNIFIED_DEVICE := true
-TARGET_INIT_VENDOR_LIB := libinit_d2lte
-TARGET_LIBINIT_DEFINES_FILE := device/samsung/d2lte/init/init_d2lte.c
-
 # Releasetools
-TARGET_RELEASETOOLS_EXTENSIONS := device/samsung/d2lte
+TARGET_RELEASETOOLS_EXTENSIONS := device/samsung/d2-common

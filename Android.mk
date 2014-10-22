@@ -16,7 +16,7 @@
 
 LOCAL_PATH := $(call my-dir)
 
-ifeq ($(TARGET_DEVICE),d2lte)
+ifneq ($(filter d2att d2cri d2csp d2mtr d2spr d2tmo d2usc d2vzw,$(TARGET_DEVICE)),)
 include $(call all-subdir-makefiles,$(LOCAL_PATH))
 
 FIRMWARE_DSPS_IMAGES := \

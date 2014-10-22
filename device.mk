@@ -15,10 +15,10 @@
 #
 
 ## Get non-open-source specific aspects if available
-$(call inherit-product-if-exists, vendor/samsung/d2lte/d2lte-vendor.mk)
+$(call inherit-product-if-exists, vendor/samsung/d2-common/d2-common-vendor.mk)
 
 ## overlays
-DEVICE_PACKAGE_OVERLAYS += device/samsung/d2lte/overlay
+DEVICE_PACKAGE_OVERLAYS += device/samsung/d2-common/overlay
 
 # Boot animation and screen size
 PRODUCT_AAPT_CONFIG := normal hdpi xhdpi
@@ -31,8 +31,8 @@ $(call inherit-product, frameworks/native/build/phone-xhdpi-2048-dalvik-heap.mk)
 
 # Audio configuration
 PRODUCT_COPY_FILES += \
-    device/samsung/d2lte/audio/snd_soc_msm_2x:system/etc/snd_soc_msm/snd_soc_msm_2x \
-    device/samsung/d2lte/audio/audio_policy.conf:system/etc/audio_policy.conf
+    device/samsung/d2-common/audio/snd_soc_msm_2x:system/etc/snd_soc_msm/snd_soc_msm_2x \
+    device/samsung/d2-common/audio/audio_policy.conf:system/etc/audio_policy.conf
 
 # GPS
 PRODUCT_PACKAGES += \
@@ -42,34 +42,37 @@ PRODUCT_PACKAGES += \
     libloc_eng
 
 PRODUCT_COPY_FILES += \
-    device/samsung/d2lte/gps/etc/gps.conf:system/etc/gps.conf \
-    device/samsung/d2lte/gps/etc/sap.conf:system/etc/sap.conf
+    device/samsung/d2-common/gps/etc/gps.conf:system/etc/gps.conf \
+    device/samsung/d2-common/gps/etc/sap.conf:system/etc/sap.conf
 
 # Keylayout
 PRODUCT_COPY_FILES += \
-    device/samsung/d2lte/keylayout/fsa9485.kl:system/usr/keylayout/fsa9485.kl \
-    device/samsung/d2lte/keylayout/msm8960-snd-card_Button_Jack.kl:system/usr/keylayout/msm8960-snd-card_Button_Jack.kl \
-    device/samsung/d2lte/keylayout/sec_key.kl:system/usr/keylayout/sec_key.kl \
-    device/samsung/d2lte/keylayout/sec_keys.kl:system/usr/keylayout/sec_keys.kl \
-    device/samsung/d2lte/keylayout/sec_powerkey.kl:system/usr/keylayout/sec_powerkey.kl \
-    device/samsung/d2lte/keylayout/sec_touchkey.kl:system/usr/keylayout/sec_touchkey.kl \
-    device/samsung/d2lte/keylayout/sii9234_rcp.kl:system/usr/keylayout/sii9234_rcp.kl
+    device/samsung/d2-common/keylayout/fsa9485.kl:system/usr/keylayout/fsa9485.kl \
+    device/samsung/d2-common/keylayout/msm8960-snd-card_Button_Jack.kl:system/usr/keylayout/msm8960-snd-card_Button_Jack.kl \
+    device/samsung/d2-common/keylayout/sec_key.kl:system/usr/keylayout/sec_key.kl \
+    device/samsung/d2-common/keylayout/sec_keys.kl:system/usr/keylayout/sec_keys.kl \
+    device/samsung/d2-common/keylayout/sec_powerkey.kl:system/usr/keylayout/sec_powerkey.kl \
+    device/samsung/d2-common/keylayout/sec_touchkey.kl:system/usr/keylayout/sec_touchkey.kl \
+    device/samsung/d2-common/keylayout/sii9234_rcp.kl:system/usr/keylayout/sii9234_rcp.kl
 
 # Logo
 PRODUCT_COPY_FILES += \
-    device/samsung/d2lte/initlogo.rle:root/initlogo.rle
+    device/samsung/d2-common/initlogo.rle:root/initlogo.rle
 
 # Media configuration
 PRODUCT_COPY_FILES += \
-    device/samsung/d2lte/media/media_profiles.xml:system/etc/media_profiles.xml
+    device/samsung/d2-common/media/media_profiles.xml:system/etc/media_profiles.xml
 
 # Wifi
 PRODUCT_COPY_FILES += \
-    device/samsung/d2lte/wifi/wpa_supplicant_overlay.conf:system/etc/wifi/wpa_supplicant_overlay.conf \
-    device/samsung/d2lte/wifi/p2p_supplicant_overlay.conf:system/etc/wifi/p2p_supplicant_overlay.conf
+    device/samsung/d2-common/wifi/wpa_supplicant_overlay.conf:system/etc/wifi/wpa_supplicant_overlay.conf \
+    device/samsung/d2-common/wifi/p2p_supplicant_overlay.conf:system/etc/wifi/p2p_supplicant_overlay.conf
 
 PRODUCT_PACKAGES += \
     libnetcmdiface
+
+# d2-common props
+$(call inherit-product, device/samsung/d2-common/system_prop.mk)
 
 # common msm8960
 $(call inherit-product, device/samsung/msm8960-common/msm8960.mk)

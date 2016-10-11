@@ -81,6 +81,7 @@ PRODUCT_COPY_FILES += \
 
 # NFC
 PRODUCT_PACKAGES += \
+    android.hardware.nfc@1.0-impl \
     libnfc \
     libnfc_jni \
     nfc.msm8960 \

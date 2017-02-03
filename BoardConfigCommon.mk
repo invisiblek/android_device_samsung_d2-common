@@ -32,6 +32,7 @@ TARGET_BOOTLOADER_BOARD_NAME := MSM8960
 
 # Kernel
 TARGET_KERNEL_CONFIG        := lineageos_d2_defconfig
+LZMA_RAMDISK_TARGETS        := recovery
 
 # Audio
 BOARD_HAVE_AUDIENCE_A2220 := true
@@ -78,3 +79,8 @@ WPA_SUPPLICANT_VERSION := VER_0_8_X
 WIFI_DRIVER_FW_PATH_PARAM   := "/sys/module/dhd/parameters/firmware_path"
 WIFI_DRIVER_FW_PATH_STA     := "/system/etc/wifi/bcmdhd_sta.bin"
 WIFI_DRIVER_FW_PATH_AP      := "/system/etc/wifi/bcmdhd_apsta.bin"
+
+# TWRP Support - Optional
+ifeq ($(WITH_TWRP),true)
+-include device/samsung/d2-common/twrp.mk
+endif

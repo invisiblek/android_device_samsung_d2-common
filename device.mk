@@ -43,8 +43,8 @@ PRODUCT_PACKAGES += \
     Snap
 
 # Doze
-PRODUCT_PACKAGES += \
-    SamsungDoze
+#PRODUCT_PACKAGES += \
+#    SamsungDoze
 
 # GPS
 PRODUCT_PACKAGES += \
